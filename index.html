@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html data-ng-app="SodecDashboard">
+    <head>
+        <title>Cal Poly - Solar Decathlon 2015</title>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="dist/css/roboto.min.css" rel="stylesheet">
+        <link href="dist/css/material.min.css" rel="stylesheet">
+        <link href="dist/css/ripples.min.css" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="center-block">
+                    <img id="solarLogo" class="img-responsive" src="images/logo_scp.png">
+                </div>
+            </div>
+<!--             <div class="row">
+                <div id="occupancyRegion" class="col-lg-4 columnBackground" data-ng-controller="occupancyController">
+                    <h2 class="text-primary">Occupancy</h2>
+                    <table class="table table-bordered table-responsive">
+                        <tbody data-ng-repeat="occ in OccSensors">
+                            <tr>
+                                <td>{{occ.name}}</td>
+                                <td>{{occ.data}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+
+                 <div id="lightingRegion" class="col-lg-4"></div>
+                 <!--
+                    <h2 class="text-primary">Lighting</h2>
+                    <table class="table table-responsive">
+                        <tbody>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                           <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                        </tbody>
+                        </tbody>
+                    </table>
+                </div> -->
+
+                <div id="temperatureRegion" class="col-lg-4 columnBackground" data-ng-controller="temperatureController">
+                    <h2 class="text-primary">Temperature</h2>
+                    <table class="table table-responsive">
+                        <tbody data-ng-repeat="temp in TempSensors">
+                            <tr>
+                                <td>{{temp.name}}</td>
+                                <td>{{temp.data}}F</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+<!--
+            <div class="row">
+                <div id="powerUsageRegion" class="col-lg-4 columnBackground">
+                    <h2 class="text-primary"> Power Usage</h2>
+                    <table class="table table-responsive">
+                        <tbody>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-4"></div>
+                <div id="overallPowerRegion" class="col-lg-4 columnBackground">
+                    <h2 class="text-primary">Overall Power</h2>
+                    <table class="table table-responsive">
+                        <tbody>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                            <tr>
+                                <td>Sample 1</td>
+                                <td>Sample 2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+ -->
+        <!-- Scripts to initialize material bootstrap theme and angular -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+        <script src="dist/js/ripples.min.js"></script>
+        <script src="dist/js/material.min.js"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="scripts/controllers.js"></script>
+
+        <script>
+            // Checks if the html has rendered
+            $(document).ready(function() {
+                // Initializes the
+                $.material.init();
+            });
+        </script>
+    </body>
+</html>
