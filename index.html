@@ -13,14 +13,16 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="center-block">
+                <div class="col-md-4"></div>
+                <div class="col-md-3">
                     <img id="solarLogo" class="img-responsive" src="images/logo_scp.png">
                 </div>
+                <div class="col-md-5"></div>
             </div>
-<!--             <div class="row">
-                <div id="occupancyRegion" class="col-lg-4 columnBackground" data-ng-controller="occupancyController">
+            <div class="row">
+                <div id="occupancyRegion" class="col-md-3 columnBackground" data-ng-controller="occupancyController">
                     <h2 class="text-primary">Occupancy</h2>
-                    <table class="table table-bordered table-responsive">
+                    <table class="table table-responsive">
                         <tbody data-ng-repeat="occ in OccSensors">
                             <tr>
                                 <td>{{occ.name}}</td>
@@ -28,10 +30,12 @@
                             </tr>
                         </tbody>
                     </table>
-                </div> -->
+                </div>
 
-                 <div id="lightingRegion" class="col-lg-4"></div>
-                 <!--
+                <div class="col-md-1"></div>
+                
+                 <div id="lightingRegion" class="col-md-3 columnBackground">
+                 
                     <h2 class="text-primary">Lighting</h2>
                     <table class="table table-responsive">
                         <tbody>
@@ -54,9 +58,10 @@
                         </tbody>
                         </tbody>
                     </table>
-                </div> -->
+                </div>
 
-                <div id="temperatureRegion" class="col-lg-4 columnBackground" data-ng-controller="temperatureController">
+                <div id="derpRegion" class="col-xs-1"></div>
+                <div id="temperatureRegion" class="col-md-3 columnBackground" data-ng-controller="temperatureController">
                     <h2 class="text-primary">Temperature</h2>
                     <table class="table table-responsive">
                         <tbody data-ng-repeat="temp in TempSensors">

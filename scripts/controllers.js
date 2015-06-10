@@ -4,7 +4,7 @@ sodecApp.service('deviceService', function($http) {
     this.getData = function(successCallback, sensor) {
         $http({
             method: 'GET',
-            url: 'http://calpolysolardecathlon.org:3000/srv/latest-event?device=' + sensor.device,
+            url: 'http://calpolysolardecathlon.org:3000/srv/latest-event?device=' + sensor.device
         }).success(function(data) {
             successCallback(data);
         }).error(function(data) {
@@ -12,6 +12,19 @@ sodecApp.service('deviceService', function($http) {
         });
     }
 });
+
+
+
+var successCallback = function(data) {
+//    console.log('Got back ' + data['device-id']);
+    var device = $.grep($scope.TempSensors, function(e){return e.device == data['device-id']})[0];
+
+    if(typeof data == 'string') {
+        device.data = data;
+    } else {
+        device.data = parseInt(data.status)/10;
+    }
+}
 
 sodecApp.controller('temperatureController', function($scope, deviceService) {
     var TempSensors = [
@@ -23,18 +36,6 @@ sodecApp.controller('temperatureController', function($scope, deviceService) {
 
     $scope.TempSensors = TempSensors;
 
-    var successCallback = function(data) {
-    //    console.log('Got back ' + data['device-id']);
-        var device = $.grep($scope.TempSensors, function(e){return e.device == data['device-id']})[0];
-
-        if(typeof data == 'string') {
-            device.data = data;
-        } else {
-            device.data = parseInt(data.status)/10;
-        }
-
-    }
-
     for(var i = 0; i < TempSensors.length; i++) {
         deviceService.getData(successCallback, $scope.TempSensors[i]);
     }
@@ -42,13 +43,13 @@ sodecApp.controller('temperatureController', function($scope, deviceService) {
 
 
 
-/*
+
 sodecApp.controller('occupancyController', function($scope, deviceService) {
     var occupancySensors = [
-        {name: 'Living Room', device: 's-occ-lr'},
-        {name: 'Bedroom', device: 's-occ-bed'},
-        {name: 'Mechanical Room', device: 's-occ-mech'},
-        {name: 'Bathroom', device: 's-occ-bath'}
+        {name: 'Living Room', device: 's-occ-lr', data: 'No Data'},
+        {name: 'Bedroom', device: 's-occ-bed', data: 'No Data'},
+        {name: 'Mechanical Room', device: 's-occ-mech', data: 'No Data'},
+        {name: 'Bathroom', device: 's-occ-bath', data: 'No Data'}
     ];
 
     $scope.OccSensors = occupancySensors;
@@ -57,9 +58,8 @@ sodecApp.controller('occupancyController', function($scope, deviceService) {
     {
         var device = $.grep($scope.OccSensors, function(e){return e.device == data['device-id']})[0];
 
-        if(typeof data == 'string') {
-            device.data = data;
-        } else {
+        if(device)
+        {
             device.data = parseInt(data.status)/10;
         }
     }
@@ -68,7 +68,7 @@ sodecApp.controller('occupancyController', function($scope, deviceService) {
         deviceService.getData(successCallback, $scope.OccSensors[i]);
     }
 });
-
+/*
 sodecApp.controller('lightingController', function($scope) {
     var lightSensors = [
         {name: 'Living Room', device: 's-occ-lr'},
