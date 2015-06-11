@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-3">
-                    <img id="solarLogo" class="img-responsive" src="images/logo_scp.png">
+                    <a href="http://calpolysolardecathlon.org"><img id="solarLogo" class="img-responsive" src="images/logo_scp.png"></a>
                 </div>
                 <div class="col-md-5"></div>
             </div>
@@ -38,24 +38,11 @@
                  
                     <h2 class="text-primary">Lighting</h2>
                     <table class="table table-responsive">
-                        <tbody>
+                        <tbody data-ng-repeat="light in LightSensors">
                             <tr>
-                                <td>Sample 1</td>
-                                <td>Sample 2</td>
+                                <td>{{light.name}}</td>
+                                <td>{{light.data}}</td>
                             </tr>
-                           <tr>
-                                <td>Sample 1</td>
-                                <td>Sample 2</td>
-                            </tr>
-                            <tr>
-                                <td>Sample 1</td>
-                                <td>Sample 2</td>
-                            </tr>
-                            <tr>
-                                <td>Sample 1</td>
-                                <td>Sample 2</td>
-                            </tr>
-                        </tbody>
                         </tbody>
                     </table>
                 </div>
